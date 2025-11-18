@@ -1,10 +1,4 @@
-# tigerpy_drawing
-Python Drawing Library
-
-This is a Python library, which will enable clients to perform 2D drawing and then export it to SVG.
-
-## Client Usage
-```python
+# client.py
 from tigerpy_drawing import DrawingCanvas, Pen
 
 redThinPen = Pen(1, (255, 0, 0))
@@ -23,14 +17,5 @@ canvas.SetPen(rectPen)
 canvas.DrawRectangle(30, 30, 40, 40)
 
 canvas.ExportSVG("temp.svg")
-```
-
-Run:
-```
-> python client.py
-```
-
-Output (screenshot of SVG file opened in Inkscape):
-![temp](temp.png)
 
 

@@ -56,6 +56,10 @@ class DrawingVisitor(ABC):
     def DrawPolygon(self, pen, points):
         pass
 
+    @abstractmethod
+    def DrawText(self, pen, x, y, text):
+        pass
+
 class Drawing:
     @abstractmethod
     def Accept(self, visitor):
@@ -118,7 +122,17 @@ class PolygonDrawing(Drawing):
         self.mPoints = points
 
     def Accept(self, visitor):
-        visitor.DrawPolygon(self.mPen, self.mPoints)       
+        visitor.DrawPolygon(self.mPen, self.mPoints)      
+
+class TextDrawing(Drawing):
+    def __init__(self, pen, x, y, text):
+        self.mPen = copy.copy(pen)
+        self.mX = x
+        self.mY = y
+        self.mText = text
+
+    def Accept(self, visitor):
+        visitor.DrawText(self.mPen, self.mX, self.mY, self.mText)             
 
 # Helper methods for SVG tags
 def BeginTag(tag):
@@ -237,9 +251,27 @@ class SVGDrawingVisitor(DrawingVisitor):
         line += EndTag() + '\n'
         self.mFile.write(line)         
 
+    def DrawText(self, pen, x, y, text):
+        line = BeginTag("text") + \
+               NumberAttribute("x", x) + \
+               NumberAttribute("y", y) + \
+               NumberAttribute("stroke-width", pen.GetStrokeSize()) + \
+               ColorAttribute("stroke", pen.GetStrokeColor())
+        
+        if (pen.GetFillColor() == None):
+               line += StringAttribute("fill", "none")
+        else:
+               line += ColorAttribute("fill", pen.GetFillColor())
+
+        line += '>'
+        line += text
+        line += '</text>\n'
+
+        self.mFile.write(line)        
+
     def __del__(self):
         self.mFile.write('</svg>')
-        self.mFile.close()
+        self.mFile.close()             
 
 class DrawingCanvas:
     def __init__(self, width, height):
@@ -267,7 +299,10 @@ class DrawingCanvas:
         self.mDrawings.append(PolylineDrawing(self.mPen, points))
 
     def DrawPolygon(self, points):
-        self.mDrawings.append(PolygonDrawing(self.mPen, points))        
+        self.mDrawings.append(PolygonDrawing(self.mPen, points))    
+
+    def DrawText(self, x, y, text):
+        self.mDrawings.append(TextDrawing(self.mPen, x, y, text))    
                         
     def ExportSVG(self, fileName):
         svgDwgVisitor = SVGDrawingVisitor(fileName, self.mWidth, self.mHeight)

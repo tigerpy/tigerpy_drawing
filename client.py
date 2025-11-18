@@ -28,6 +28,9 @@ purpleStrokeGreenFillPen = Pen(1, (163, 73, 164), (34, 177, 76))
 canvas.SetPen(purpleStrokeGreenFillPen)
 canvas.DrawPolygon([[220, 10], [300, 210], [170, 250], [123, 234]])
 
+canvas.SetPen(redThinPen)
+canvas.DrawText(50, 200, "Hello World!")
+
 canvas.ExportSVG("temp.svg")
 
 

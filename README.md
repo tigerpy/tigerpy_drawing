@@ -35,6 +35,9 @@ purpleStrokeGreenFillPen = Pen(1, (163, 73, 164), (34, 177, 76))
 canvas.SetPen(purpleStrokeGreenFillPen)
 canvas.DrawPolygon([[220, 10], [300, 210], [170, 250], [123, 234]])
 
+canvas.SetPen(redThinPen)
+canvas.DrawText(50, 200, "Hello World!")
+
 canvas.ExportSVG("temp.svg")
 ```
 
@@ -45,5 +48,14 @@ Run:
 
 Output (screenshot of SVG file opened in Inkscape):
 ![temp](temp.png)
+
+## TODOs
+* Change font
+* Transforms (translation, rotation, scaling)
+* Bezier curves
+* Export to other image formats: BMP, PNG, JPEG etc
+* Draw arrows
+* Draw N-gons (like hexagon, octagon etc)
+
 
 

@@ -1,10 +1,15 @@
 <svg width="300" height="300">
-<line x1="0" y1="0" x2="100" y2="100" stroke-width="1" stroke="rgb(255,0,0)" />
-<line x1="100" y1="0" x2="0" y2="100" stroke-width="3" stroke="rgb(0,0,255)" />
-<rect x="30" y="30" width="40" height="40" stroke-width="2" stroke="rgb(128,255,128)" fill="rgb(255,255,0)" />
-<circle cx="50" cy="50" r="30" stroke-width="1" stroke="rgb(255,0,0)" fill="none" />
-<ellipse cx="60" cy="70" rx="20" ry="10" stroke-width="1" stroke="rgb(255,0,0)" fill="none" />
-<polyline points="0,0 5,10 10,20 20,5 30,40 " stroke-width="1" stroke="rgb(255,0,0)" fill="none" />
+<text x="10" y="10" stroke-width="1" stroke="rgb(0,0,0)" fill="rgb(0,0,0)" >Red 2 pixels thick line</text>
+<line x1="10" y1="15" x2="100" y2="15" stroke-width="1" stroke="rgb(255,0,0)" />
+<text x="10" y="35" stroke-width="1" stroke="rgb(0,0,0)" fill="rgb(0,0,0)" >Blue 5 pixels thick line</text>
+<line x1="10" y1="40" x2="100" y2="40" stroke-width="3" stroke="rgb(0,0,255)" />
+<text x="10" y="60" stroke-width="1" stroke="rgb(0,0,0)" fill="rgb(0,0,0)" >Filled Rectangle</text>
+<rect x="10" y="65" width="40" height="40" stroke-width="2" stroke="rgb(128,255,128)" fill="rgb(255,255,0)" />
+<text x="10" y="120" stroke-width="1" stroke="rgb(0,0,0)" fill="rgb(0,0,0)" >Circle and Ellipse</text>
+<circle cx="40" cy="160" r="30" stroke-width="1" stroke="rgb(255,0,0)" fill="none" />
+<ellipse cx="100" cy="160" rx="20" ry="10" stroke-width="1" stroke="rgb(255,0,0)" fill="none" />
+<text x="10" y="220" stroke-width="1" stroke="rgb(0,0,0)" fill="rgb(0,0,0)" >Polyline</text>
+<polyline points="10,230 15,240 20,250 30,235 40,270 " stroke-width="1" stroke="rgb(255,0,0)" fill="none" />
+<text x="160" y="30" stroke-width="1" stroke="rgb(0,0,0)" fill="rgb(0,0,0)" >Polygon</text>
 <polygon points="220,10 300,210 170,250 123,234 " stroke-width="1" stroke="rgb(163,73,164)" fill="rgb(34,177,76)" />
-<text x="50" y="200" stroke-width="1" stroke="rgb(255,0,0)" fill="none" >Hello World!</text>
 </svg>
